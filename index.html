@@ -77,6 +77,21 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Better bullet point styling */
+      ul.experience-list {
+        list-style-position: outside;
+        padding-left: 1.25rem;
+      }
+
+      ul.experience-list li {
+        padding-left: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      ul.experience-list li::marker {
+        color: rgb(var(--text-muted));
+      }
+
       @media print {
         .no-print {
           display: none;
@@ -218,39 +233,76 @@
       <section class="mb-10">
         <h2
           class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Technical Skills
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Frontend:</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Frontend:
+            </p>
             <p style="color: rgb(var(--text-secondary))">
               React, Angular (v12+), JavaScript, TypeScript, HTML5, CSS3, SCSS
             </p>
           </div>
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Backend:</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Backend:
+            </p>
             <p style="color: rgb(var(--text-secondary))">
               .NET Core, C#, Node.js, Java, Groovy, PHP
             </p>
           </div>
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Cloud & DevOps:</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Cloud & DevOps:
+            </p>
             <p style="color: rgb(var(--text-secondary))">
               Azure, AWS, Azure DevOps, CI/CD pipelines, Docker
             </p>
           </div>
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Databases:</p>
-            <p style="color: rgb(var(--text-secondary))">SQL Server, DynamoDB</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Databases:
+            </p>
+            <p style="color: rgb(var(--text-secondary))">
+              SQL Server, DynamoDB
+            </p>
           </div>
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Testing:</p>
-            <p style="color: rgb(var(--text-secondary))">Jest, Cypress, JMeter</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Testing:
+            </p>
+            <p style="color: rgb(var(--text-secondary))">
+              Jest, Cypress, JMeter
+            </p>
           </div>
           <div>
-            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Methodologies:</p>
+            <p
+              class="font-semibold mb-1"
+              style="color: rgb(var(--text-primary))"
+            >
+              Methodologies:
+            </p>
             <p style="color: rgb(var(--text-secondary))">
               Agile, Scrum, UX Design, WCAG, DevSecOps
             </p>
@@ -262,7 +314,10 @@
       <section class="mb-10">
         <h2
           class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Professional Experience
         </h2>
@@ -271,18 +326,25 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
+              <h3
+                class="text-xl font-semibold"
+                style="color: rgb(var(--text-primary))"
+              >
                 Senior Technology Consultant
               </h3>
-              <p style="color: rgb(var(--text-secondary))">BearingPoint, Dublin</p>
+              <p style="color: rgb(var(--text-secondary))">
+                BearingPoint, Dublin
+              </p>
             </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))">March 2024 - Present</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              >March 2024 - Present</span
+            >
           </div>
           <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Lead Developer for digital transformation of case management system
           </p>
           <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
             style="color: rgb(var(--text-secondary))"
           >
             <li>
@@ -320,18 +382,25 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
+              <h3
+                class="text-xl font-semibold"
+                style="color: rgb(var(--text-primary))"
+              >
                 Technology Consultant
               </h3>
-              <p style="color: rgb(var(--text-secondary))">BearingPoint, Dublin</p>
+              <p style="color: rgb(var(--text-secondary))">
+                BearingPoint, Dublin
+              </p>
             </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))">March 2022 - March 2024</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              >March 2022 - March 2024</span
+            >
           </div>
           <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Developer for large public body
           </p>
           <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
             style="color: rgb(var(--text-secondary))"
           >
             <li>
@@ -359,18 +428,23 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
+              <h3
+                class="text-xl font-semibold"
+                style="color: rgb(var(--text-primary))"
+              >
                 .NET/Angular Consultant
               </h3>
               <p style="color: rgb(var(--text-secondary))">Version 1, Dublin</p>
             </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))">July 2019 - March 2022</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              >July 2019 - March 2022</span
+            >
           </div>
           <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Large digital transformation project of a case management system
           </p>
           <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
             style="color: rgb(var(--text-secondary))"
           >
             <li>
@@ -401,19 +475,29 @@
       <section class="mb-10">
         <h2
           class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Education
         </h2>
         <div class="mb-4">
           <div class="flex justify-between items-start">
             <div>
-              <h3 class="text-lg font-semibold" style="color: rgb(var(--text-primary))">
+              <h3
+                class="text-lg font-semibold"
+                style="color: rgb(var(--text-primary))"
+              >
                 BSc (Hons) Creative Computing, First Class Honours
               </h3>
-              <p style="color: rgb(var(--text-secondary))">IADT, Dun Laoghaire</p>
+              <p style="color: rgb(var(--text-secondary))">
+                IADT, Dun Laoghaire
+              </p>
             </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))">September 2015 - May 2019</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              >September 2015 - May 2019</span
+            >
           </div>
           <p class="text-sm mt-2" style="color: rgb(var(--text-secondary))">
             <strong>Final Year Project:</strong> Procedural Generation –
@@ -427,7 +511,10 @@
       <section class="mb-10">
         <h2
           class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Certifications
         </h2>
@@ -449,7 +536,10 @@
       <section class="mb-10">
         <h2
           class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Achievements
         </h2>
