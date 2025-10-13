@@ -31,6 +31,7 @@
       content="Senior Full-Stack Software Engineer with 6+ years experience in React, Angular, .NET, Java, and cloud platforms"
     />
     <title>Andrew Dunne - Senior Full-Stack Software Engineer</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -41,6 +42,42 @@
       data-domain="andrewdunne.ie"
       src="https://plausible.io/js/script.js"
     ></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Andrew Dunne",
+        "jobTitle": "Senior Full-Stack Software Engineer",
+        "url": "https://andrewdunne.ie",
+        "email": "andrew@andrewdunne.ie",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dublin",
+          "addressCountry": "IE"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "IADT",
+          "location": "Dun Laoghaire"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/andrew-dunne-ie",
+          "https://github.com/adtukz/andrewdunne-cv"
+        ],
+        "knowsAbout": [
+          "React",
+          "Angular",
+          "JavaScript",
+          "TypeScript",
+          ".NET Core",
+          "C#",
+          "Node.js",
+          "Java",
+          "Azure",
+          "AWS"
+        ]
+      }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,6 +106,10 @@
         --border-color: 55, 65, 81;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
@@ -77,27 +118,105 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      /* Better bullet point styling */
       ul.experience-list {
         list-style-position: outside;
         padding-left: 1.25rem;
+        line-height: 1.7;
       }
 
       ul.experience-list li {
         padding-left: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
       }
 
       ul.experience-list li::marker {
         color: rgb(var(--text-muted));
       }
 
+      .timeline-container {
+        position: relative;
+        border-left: 2px solid rgba(22, 155, 98, 0.2);
+        margin-left: 1rem;
+        padding-left: 0;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+        padding-left: 2.5rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -13px;
+        top: 32px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #169b62 0%, #0d7a4d 100%);
+        border: 3px solid rgb(var(--bg-secondary));
+        z-index: 1;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .experience-card {
+        transition: all 0.3s ease;
+      }
+
+      .experience-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="dark"] .experience-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-gradient {
+        background: linear-gradient(135deg, #169b62 0%, #0d7a4d 100%);
+        transition: all 0.3s ease;
+      }
+
+      .btn-gradient:hover {
+        background: linear-gradient(135deg, #0d7a4d 0%, #0a5c39 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 155, 98, 0.4);
+      }
+
+      .btn-outline {
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 155, 98, 0.2);
+      }
+
       @media print {
         .no-print {
           display: none;
         }
-        .print-break {
-          page-break-after: always;
+        .timeline-container {
+          border-left: none;
+          margin-left: 0;
+        }
+        .timeline-item::before {
+          display: none;
+        }
+        .timeline-item {
+          padding-left: 0;
+        }
+        main {
+          box-shadow: none !important;
+          margin: 0 !important;
+        }
+        .experience-card {
+          box-shadow: none !important;
+          background-color: transparent !important;
         }
       }
     </style>
@@ -126,6 +245,24 @@
           Andrew Dunne
         </h1>
         <div class="flex items-center gap-3">
+          <a
+            href="/Andrew_Dunne_CV.pdf"
+            download
+            class="btn-outline border-2 px-4 py-2 rounded-lg font-medium"
+            style="
+              background-color: transparent;
+              border-color: #169b62;
+              color: #169b62;
+            "
+            onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
+            >Download CV</a
+          >
+          <a
+            href="#contact"
+            class="btn-gradient text-white px-4 py-2 rounded-lg font-medium"
+            >Get in Touch</a
+          >
           <button
             id="theme-toggle"
             class="p-2 rounded-lg transition"
@@ -159,11 +296,6 @@
               ></path>
             </svg>
           </button>
-          <a
-            href="#contact"
-            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-            >Get in Touch</a
-          >
         </div>
       </div>
     </header>
@@ -189,16 +321,22 @@
           style="color: rgb(var(--text-secondary))"
         >
           <a
-            href="mailto:cv@andrewdunne.ie"
-            class="hover:text-blue-600 transition"
-            >cv@andrewdunne.ie</a
+            href="mailto:andrew@andrewdunne.ie"
+            class="transition"
+            style="color: rgb(var(--text-secondary))"
+            onmouseover="this.style.color='#169b62'"
+            onmouseout="this.style.color='rgb(var(--text-secondary))'"
+            >andrew@andrewdunne.ie</a
           >
           <span style="color: rgb(var(--text-muted))">|</span>
           <a
             href="https://linkedin.com/in/andrew-dunne-ie"
             target="_blank"
             rel="noopener"
-            class="hover:text-blue-600 transition"
+            class="transition"
+            style="color: rgb(var(--text-secondary))"
+            onmouseover="this.style.color='#169b62'"
+            onmouseout="this.style.color='rgb(var(--text-secondary))'"
             >LinkedIn</a
           >
           <span style="color: rgb(var(--text-muted))">|</span>
@@ -322,150 +460,161 @@
           Professional Experience
         </h2>
 
-        <!-- BearingPoint - Senior -->
-        <div class="mb-8">
-          <div class="flex justify-between items-start mb-2">
-            <div>
-              <h3
-                class="text-xl font-semibold"
-                style="color: rgb(var(--text-primary))"
-              >
-                Senior Technology Consultant
-              </h3>
-              <p style="color: rgb(var(--text-secondary))">
-                BearingPoint, Dublin
-              </p>
-            </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))"
-              >March 2024 - Present</span
-            >
-          </div>
-          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
-            Lead Developer for digital transformation of case management system
-          </p>
-          <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-            style="color: rgb(var(--text-secondary))"
+        <div class="timeline-container">
+          <div
+            class="timeline-item experience-card mb-8 p-6 rounded-lg"
+            style="background-color: rgba(var(--bg-accent), 0.3)"
           >
-            <li>
-              Lead technical delivery of multiple systems including internal
-              portals built with <strong>React</strong> and public-facing portal
-              developed in <strong>PHP</strong>, serving thousands of public
-              sector users
-            </li>
-            <li>
-              Architect and develop case management system powered by
-              <strong>Flowable</strong>, integrating <strong>Java</strong> and
-              <strong>Groovy</strong> to support complex workflow automation
-            </li>
-            <li>
-              Manage end-to-end development lifecycle ensuring compliance with
-              strict security and accessibility standards (WCAG 2.1 AA)
-            </li>
-            <li>
-              Drive structured bi-monthly release cycle using
-              <strong>AWS</strong> cloud services and
-              <strong>GitLab CI/CD</strong> pipelines
-            </li>
-            <li>
-              Conduct UX reviews and accessibility assessments to meet industry
-              standards
-            </li>
-            <li>
-              Mentor junior developers through code reviews, pair programming,
-              and technical guidance
-            </li>
-          </ul>
-        </div>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3
+                  class="text-xl font-semibold"
+                  style="color: rgb(var(--text-primary))"
+                >
+                  Senior Technology Consultant
+                </h3>
+                <p style="color: rgb(var(--text-secondary))">
+                  BearingPoint, Dublin
+                </p>
+              </div>
+              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+                >March 2024 - Present</span
+              >
+            </div>
+            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
+              Lead Developer for digital transformation of case management
+              system
+            </p>
+            <ul
+              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
+              style="color: rgb(var(--text-secondary))"
+            >
+              <li>
+                Lead technical delivery of multiple systems including internal
+                portals built with <strong>React</strong> and public-facing
+                portal developed in <strong>PHP</strong>, serving thousands of
+                public sector users
+              </li>
+              <li>
+                Architect and develop case management system powered by
+                <strong>Flowable</strong>, integrating <strong>Java</strong> and
+                <strong>Groovy</strong> to support complex workflow automation
+              </li>
+              <li>
+                Manage end-to-end development lifecycle ensuring compliance with
+                strict security and accessibility standards (WCAG 2.1 AA)
+              </li>
+              <li>
+                Drive structured bi-monthly release cycle using
+                <strong>AWS</strong> cloud services and
+                <strong>GitLab CI/CD</strong> pipelines
+              </li>
+              <li>
+                Conduct UX reviews and accessibility assessments to meet
+                industry standards
+              </li>
+              <li>
+                Mentor junior developers through code reviews, pair programming,
+                and technical guidance
+              </li>
+            </ul>
+          </div>
 
-        <!-- BearingPoint - Regular -->
-        <div class="mb-8">
-          <div class="flex justify-between items-start mb-2">
-            <div>
-              <h3
-                class="text-xl font-semibold"
-                style="color: rgb(var(--text-primary))"
-              >
-                Technology Consultant
-              </h3>
-              <p style="color: rgb(var(--text-secondary))">
-                BearingPoint, Dublin
-              </p>
-            </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))"
-              >March 2022 - March 2024</span
-            >
-          </div>
-          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
-            Developer for large public body
-          </p>
-          <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-            style="color: rgb(var(--text-secondary))"
+          <div
+            class="timeline-item experience-card mb-8 p-6 rounded-lg"
+            style="background-color: rgba(var(--bg-accent), 0.3)"
           >
-            <li>
-              Developed and maintained <strong>Power Apps</strong> which were
-              developed and deployed rapidly in production environments to
-              address high-value client needs
-            </li>
-            <li>
-              Implemented monitoring and logging infrastructure using
-              <strong>ELK stack</strong> (Elasticsearch, Logstash, Grafana)
-            </li>
-            <li>
-              Built <strong>Power BI</strong> dashboards for real-time
-              performance monitoring
-            </li>
-            <li>
-              Optimized SQL database queries and backend processes using
-              <strong>.NET Framework</strong>
-            </li>
-          </ul>
-        </div>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3
+                  class="text-xl font-semibold"
+                  style="color: rgb(var(--text-primary))"
+                >
+                  Technology Consultant
+                </h3>
+                <p style="color: rgb(var(--text-secondary))">
+                  BearingPoint, Dublin
+                </p>
+              </div>
+              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+                >March 2022 - March 2024</span
+              >
+            </div>
+            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
+              Developer for large public body
+            </p>
+            <ul
+              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
+              style="color: rgb(var(--text-secondary))"
+            >
+              <li>
+                Developed and maintained <strong>Power Apps</strong> which were
+                developed and deployed rapidly in production environments to
+                address high-value client needs
+              </li>
+              <li>
+                Implemented monitoring and logging infrastructure using
+                <strong>ELK stack</strong> (Elasticsearch, Logstash, Grafana)
+              </li>
+              <li>
+                Built <strong>Power BI</strong> dashboards for real-time
+                performance monitoring
+              </li>
+              <li>
+                Optimized SQL database queries and backend processes using
+                <strong>.NET Framework</strong>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Version 1 -->
-        <div class="mb-8">
-          <div class="flex justify-between items-start mb-2">
-            <div>
-              <h3
-                class="text-xl font-semibold"
-                style="color: rgb(var(--text-primary))"
-              >
-                .NET/Angular Consultant
-              </h3>
-              <p style="color: rgb(var(--text-secondary))">Version 1, Dublin</p>
-            </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))"
-              >July 2019 - March 2022</span
-            >
-          </div>
-          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
-            Large digital transformation project of a case management system
-          </p>
-          <ul
-            class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-            style="color: rgb(var(--text-secondary))"
+          <div
+            class="timeline-item experience-card mb-8 p-6 rounded-lg"
+            style="background-color: rgba(var(--bg-accent), 0.3)"
           >
-            <li>
-              Instrumental in transforming legacy case management system into
-              modern, responsive SPA using <strong>Angular</strong> (v12),
-              <strong>NgRx</strong>, and <strong>Nx</strong> monorepo
-            </li>
-            <li>
-              Developed RESTful APIs and backend services using
-              <strong>.NET Core 3.1</strong> and
-              <strong>Azure Function Apps</strong>, supporting 2,000+ concurrent
-              users
-            </li>
-            <li>
-              Integrated <strong>SignalR</strong> for real-time communication
-              features
-            </li>
-            <li>
-              Implemented performance monitoring using
-              <strong>Azure Application Insights</strong>
-            </li>
-          </ul>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3
+                  class="text-xl font-semibold"
+                  style="color: rgb(var(--text-primary))"
+                >
+                  .NET/Angular Consultant
+                </h3>
+                <p style="color: rgb(var(--text-secondary))">
+                  Version 1, Dublin
+                </p>
+              </div>
+              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+                >July 2019 - March 2022</span
+              >
+            </div>
+            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
+              Large digital transformation project of a case management system
+            </p>
+            <ul
+              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
+              style="color: rgb(var(--text-secondary))"
+            >
+              <li>
+                Instrumental in transforming legacy case management system into
+                modern, responsive SPA using <strong>Angular</strong> (v12),
+                <strong>NgRx</strong>, and <strong>Nx</strong> monorepo
+              </li>
+              <li>
+                Developed RESTful APIs and backend services using
+                <strong>.NET Core 3.1</strong> and
+                <strong>Azure Function Apps</strong>, supporting 2,000+
+                concurrent users
+              </li>
+              <li>
+                Integrated <strong>SignalR</strong> for real-time communication
+                features
+              </li>
+              <li>
+                Implemented performance monitoring using
+                <strong>Azure Application Insights</strong>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -558,7 +707,7 @@
       <!-- Contact Form -->
       <section
         id="contact"
-        class="mt-12 p-8 rounded-lg"
+        class="mt-12 p-8 rounded-lg no-print"
         style="background-color: rgb(var(--bg-accent))"
       >
         <h2
@@ -600,12 +749,14 @@
                 id="name"
                 name="name"
                 required
-                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
                 style="
                   background-color: rgb(var(--bg-secondary));
                   color: rgb(var(--text-primary));
                   border-color: rgb(var(--border-color));
                 "
+                onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)';"
+                onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
               />
             </div>
 
@@ -621,12 +772,14 @@
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
                 style="
                   background-color: rgb(var(--bg-secondary));
                   color: rgb(var(--text-primary));
                   border-color: rgb(var(--border-color));
                 "
+                onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
+                onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
               />
             </div>
           </div>
@@ -642,12 +795,14 @@
               type="text"
               id="subject"
               name="subject"
-              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
               style="
                 background-color: rgb(var(--bg-secondary));
                 color: rgb(var(--text-primary));
                 border-color: rgb(var(--border-color));
               "
+              onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
+              onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
             />
           </div>
 
@@ -663,28 +818,34 @@
               name="message"
               rows="5"
               required
-              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
               style="
                 background-color: rgb(var(--bg-secondary));
                 color: rgb(var(--text-primary));
                 border-color: rgb(var(--border-color));
               "
+              onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
+              onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
             ></textarea>
           </div>
 
           <div class="flex flex-wrap justify-center gap-4 pt-2">
             <button
               type="submit"
-              class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium"
+              class="btn-gradient text-white px-8 py-3 rounded-lg font-medium"
             >
               Send Message
             </button>
             <a
-              href="mailto:cv@andrewdunne.ie"
-              class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg transition font-medium"
-              style="background-color: transparent"
-              onmouseover="this.style.backgroundColor='rgba(var(--border-color), 0.3)'"
-              onmouseout="this.style.backgroundColor='transparent'"
+              href="mailto:andrew@andrewdunne.ie"
+              class="btn-outline border-2 px-8 py-3 rounded-lg font-medium"
+              style="
+                background-color: transparent;
+                border-color: #169b62;
+                color: #169b62;
+              "
+              onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
             >
               Email Directly
             </a>
@@ -692,10 +853,14 @@
               href="https://linkedin.com/in/andrew-dunne-ie"
               target="_blank"
               rel="noopener"
-              class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg transition font-medium"
-              style="background-color: transparent"
-              onmouseover="this.style.backgroundColor='rgba(var(--border-color), 0.3)'"
-              onmouseout="this.style.backgroundColor='transparent'"
+              class="btn-outline border-2 px-8 py-3 rounded-lg font-medium"
+              style="
+                background-color: transparent;
+                border-color: #169b62;
+                color: #169b62;
+              "
+              onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
             >
               LinkedIn
             </a>
@@ -713,13 +878,23 @@
       "
     >
       <div class="max-w-4xl mx-auto px-6 text-center text-sm">
-        <p>&copy; 2025 Andrew Dunne. All rights reserved.</p>
-        <p class="mt-2">Built with HTML & Tailwind CSS. Hosted on Netlify.</p>
+        <p>&copy; 2025 Andrew Dunne. Designed and built from scratch.</p>
+        <p class="mt-2">
+          <a
+            href="https://github.com/adtukz/andrewdunne-cv"
+            target="_blank"
+            rel="noopener"
+            class="transition"
+            style="color: rgb(var(--text-muted))"
+            onmouseover="this.style.color='#169b62'"
+            onmouseout="this.style.color='rgb(var(--text-muted))'"
+            >View source on GitHub</a
+          >
+        </p>
       </div>
     </footer>
 
     <script>
-      // Dark mode toggle functionality
       const themeToggleBtn = document.getElementById("theme-toggle");
       const themeToggleDarkIcon = document.getElementById(
         "theme-toggle-dark-icon"
