@@ -11,7 +11,36 @@
       name="keywords"
       content="Software Engineer, Full Stack Developer, React, Angular, JavaScript, TypeScript, Dublin, Ireland"
     />
+    <meta
+      property="og:title"
+      content="Andrew Dunne - Senior Full-Stack Software Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Senior Full-Stack Software Engineer with 6+ years experience in React, Angular, .NET, Java, and cloud platforms"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://andrewdunne.ie" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Andrew Dunne - Senior Full-Stack Software Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Senior Full-Stack Software Engineer with 6+ years experience in React, Angular, .NET, Java, and cloud platforms"
+    />
     <title>Andrew Dunne - Senior Full-Stack Software Engineer</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>"
+    />
+    <script
+      defer
+      data-domain="andrewdunne.ie"
+      src="https://plausible.io/js/script.js"
+    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,10 +49,34 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg-primary: 249, 250, 251;
+        --bg-secondary: 255, 255, 255;
+        --bg-accent: 239, 246, 255;
+        --text-primary: 17, 24, 39;
+        --text-secondary: 75, 85, 99;
+        --text-muted: 156, 163, 175;
+        --border-color: 229, 231, 235;
+      }
+
+      [data-theme="dark"] {
+        --bg-primary: 17, 24, 39;
+        --bg-secondary: 31, 41, 55;
+        --bg-accent: 30, 41, 59;
+        --text-primary: 243, 244, 246;
+        --text-secondary: 209, 213, 219;
+        --text-muted: 156, 163, 175;
+        --border-color: 55, 65, 81;
+      }
+
       body {
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
+        background-color: rgb(var(--bg-primary));
+        color: rgb(var(--text-primary));
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
+
       @media print {
         .no-print {
           display: none;
@@ -33,39 +86,99 @@
         }
       }
     </style>
+    <script>
+      // Dark mode initialization (runs before body renders to prevent flash)
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
-  <body class="bg-gray-50 text-gray-900">
+  <body>
     <!-- Header -->
-    <header class="bg-white shadow-sm no-print">
+    <header
+      class="shadow-sm no-print"
+      style="background-color: rgb(var(--bg-secondary))"
+    >
       <div
         class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <h1 class="text-xl font-bold text-gray-900">Andrew Dunne</h1>
-        <a
-          href="#contact"
-          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-          >Get in Touch</a
-        >
+        <h1 class="text-xl font-bold" style="color: rgb(var(--text-primary))">
+          Andrew Dunne
+        </h1>
+        <div class="flex items-center gap-3">
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-lg transition"
+            aria-label="Toggle dark mode"
+            style="background-color: rgba(var(--border-color), 0.5)"
+          >
+            <svg
+              id="theme-toggle-dark-icon"
+              class="w-5 h-5 hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              style="color: rgb(var(--text-primary))"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              id="theme-toggle-light-icon"
+              class="w-5 h-5 hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              style="color: rgb(var(--text-primary))"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <a
+            href="#contact"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            >Get in Touch</a
+          >
+        </div>
       </div>
     </header>
 
     <!-- Main Content -->
     <main
-      class="max-w-4xl mx-auto px-6 py-12 bg-white my-8 shadow-lg rounded-lg"
+      class="max-w-4xl mx-auto px-6 py-12 my-8 shadow-lg rounded-lg"
+      style="background-color: rgb(var(--bg-secondary))"
     >
       <!-- Name & Title -->
       <div class="mb-8 text-center">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Andrew Dunne</h1>
-        <p class="text-xl text-gray-600 mb-4">
+        <h1
+          class="text-4xl font-bold mb-2"
+          style="color: rgb(var(--text-primary))"
+        >
+          Andrew Dunne
+        </h1>
+        <p class="text-xl mb-4" style="color: rgb(var(--text-secondary))">
           Senior Full-Stack Software Engineer
         </p>
-        <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+        <div
+          class="flex flex-wrap justify-center gap-4 text-sm"
+          style="color: rgb(var(--text-secondary))"
+        >
           <a
-            href="mailto: andrew@andrewdunne.ie"
+            href="mailto:cv@andrewdunne.ie"
             class="hover:text-blue-600 transition"
-            >andrew@andrewdunne.ie</a
+            >cv@andrewdunne.ie</a
           >
-          <span class="text-gray-400">|</span>
+          <span style="color: rgb(var(--text-muted))">|</span>
           <a
             href="https://linkedin.com/in/andrew-dunne-ie"
             target="_blank"
@@ -73,7 +186,7 @@
             class="hover:text-blue-600 transition"
             >LinkedIn</a
           >
-          <span class="text-gray-400">|</span>
+          <span style="color: rgb(var(--text-muted))">|</span>
           <span>Dublin, Ireland</span>
         </div>
       </div>
@@ -81,11 +194,15 @@
       <!-- Professional Summary -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="
+            color: rgb(var(--text-primary));
+            border-color: rgb(var(--border-color));
+          "
         >
           Professional Summary
         </h2>
-        <p class="text-gray-700 leading-relaxed">
+        <p class="leading-relaxed" style="color: rgb(var(--text-secondary))">
           Senior Full-Stack Software Engineer with 6+ years of experience
           delivering enterprise-scale web applications for public sector
           clients. Proven track record leading technical delivery across diverse
@@ -100,40 +217,41 @@
       <!-- Technical Skills -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
         >
           Technical Skills
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Frontend:</p>
-            <p class="text-gray-700">
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Frontend:</p>
+            <p style="color: rgb(var(--text-secondary))">
               React, Angular (v12+), JavaScript, TypeScript, HTML5, CSS3, SCSS
             </p>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Backend:</p>
-            <p class="text-gray-700">
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Backend:</p>
+            <p style="color: rgb(var(--text-secondary))">
               .NET Core, C#, Node.js, Java, Groovy, PHP
             </p>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Cloud & DevOps:</p>
-            <p class="text-gray-700">
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Cloud & DevOps:</p>
+            <p style="color: rgb(var(--text-secondary))">
               Azure, AWS, Azure DevOps, CI/CD pipelines, Docker
             </p>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Databases:</p>
-            <p class="text-gray-700">SQL Server, DynamoDB</p>
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Databases:</p>
+            <p style="color: rgb(var(--text-secondary))">SQL Server, DynamoDB</p>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Testing:</p>
-            <p class="text-gray-700">Jest, Cypress, JMeter</p>
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Testing:</p>
+            <p style="color: rgb(var(--text-secondary))">Jest, Cypress, JMeter</p>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 mb-1">Methodologies:</p>
-            <p class="text-gray-700">
+            <p class="font-semibold mb-1" style="color: rgb(var(--text-primary))">Methodologies:</p>
+            <p style="color: rgb(var(--text-secondary))">
               Agile, Scrum, UX Design, WCAG, DevSecOps
             </p>
           </div>
@@ -143,7 +261,8 @@
       <!-- Professional Experience -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
         >
           Professional Experience
         </h2>
@@ -152,18 +271,19 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold text-gray-900">
+              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
                 Senior Technology Consultant
               </h3>
-              <p class="text-gray-600">BearingPoint, Dublin</p>
+              <p style="color: rgb(var(--text-secondary))">BearingPoint, Dublin</p>
             </div>
-            <span class="text-sm text-gray-600">March 2024 - Present</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))">March 2024 - Present</span>
           </div>
-          <p class="font-medium text-gray-800 mb-2">
+          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Lead Developer for digital transformation of case management system
           </p>
           <ul
-            class="list-disc list-inside text-gray-700 space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4"
+            style="color: rgb(var(--text-secondary))"
           >
             <li>
               Lead technical delivery of multiple systems including internal
@@ -200,22 +320,24 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold text-gray-900">
+              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
                 Technology Consultant
               </h3>
-              <p class="text-gray-600">BearingPoint, Dublin</p>
+              <p style="color: rgb(var(--text-secondary))">BearingPoint, Dublin</p>
             </div>
-            <span class="text-sm text-gray-600">March 2022 - March 2024</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))">March 2022 - March 2024</span>
           </div>
-          <p class="font-medium text-gray-800 mb-2">
+          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Developer for large public body
           </p>
           <ul
-            class="list-disc list-inside text-gray-700 space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4"
+            style="color: rgb(var(--text-secondary))"
           >
             <li>
-              Developed and maintained <strong>Power Apps</strong> for rapid
-              deployment, reducing deployment time by 40%
+              Developed and maintained <strong>Power Apps</strong> which were
+              developed and deployed rapidly in production environments to
+              address high-value client needs
             </li>
             <li>
               Implemented monitoring and logging infrastructure using
@@ -237,18 +359,19 @@
         <div class="mb-8">
           <div class="flex justify-between items-start mb-2">
             <div>
-              <h3 class="text-xl font-semibold text-gray-900">
+              <h3 class="text-xl font-semibold" style="color: rgb(var(--text-primary))">
                 .NET/Angular Consultant
               </h3>
-              <p class="text-gray-600">Version 1, Dublin</p>
+              <p style="color: rgb(var(--text-secondary))">Version 1, Dublin</p>
             </div>
-            <span class="text-sm text-gray-600">July 2019 - March 2022</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))">July 2019 - March 2022</span>
           </div>
-          <p class="font-medium text-gray-800 mb-2">
+          <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
             Large digital transformation project of a case management system
           </p>
           <ul
-            class="list-disc list-inside text-gray-700 space-y-2 text-sm ml-4"
+            class="list-disc list-inside space-y-2 text-sm ml-4"
+            style="color: rgb(var(--text-secondary))"
           >
             <li>
               Instrumental in transforming legacy case management system into
@@ -263,7 +386,7 @@
             </li>
             <li>
               Integrated <strong>SignalR</strong> for real-time communication
-              features, improving user collaboration by 50%
+              features
             </li>
             <li>
               Implemented performance monitoring using
@@ -277,21 +400,22 @@
       <!-- Education -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
         >
           Education
         </h2>
         <div class="mb-4">
           <div class="flex justify-between items-start">
             <div>
-              <h3 class="text-lg font-semibold text-gray-900">
+              <h3 class="text-lg font-semibold" style="color: rgb(var(--text-primary))">
                 BSc (Hons) Creative Computing, First Class Honours
               </h3>
-              <p class="text-gray-600">IADT, Dun Laoghaire</p>
+              <p style="color: rgb(var(--text-secondary))">IADT, Dun Laoghaire</p>
             </div>
-            <span class="text-sm text-gray-600">September 2015 - May 2019</span>
+            <span class="text-sm" style="color: rgb(var(--text-secondary))">September 2015 - May 2019</span>
           </div>
-          <p class="text-gray-700 text-sm mt-2">
+          <p class="text-sm mt-2" style="color: rgb(var(--text-secondary))">
             <strong>Final Year Project:</strong> Procedural Generation –
             Investigation of Perlin and Simplex noise algorithms to create
             natural terrain using Unity and C#
@@ -302,17 +426,21 @@
       <!-- Certifications -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
         >
           Certifications
         </h2>
-        <ul class="text-gray-700 space-y-1 text-sm">
+        <ul class="space-y-1 text-sm" style="color: rgb(var(--text-secondary))">
           <li>
-            Microsoft Power Platform Functional Consultant Associate (PL-200) -
-            2022
+            Microsoft Power Platform Functional Consultant Associate
+            (<strong>PL-200</strong>) - 2022
           </li>
-          <li>Microsoft Power Platform Fundamentals (PL-900) - 2021</li>
-          <li>Microsoft Azure Fundamentals (AZ-900) - 2021</li>
+          <li>
+            Microsoft Power Platform Fundamentals (<strong>PL-900</strong>) -
+            2021
+          </li>
+          <li>Microsoft Azure Fundamentals (<strong>AZ-900</strong>) - 2021</li>
           <li>AWS Cloud Practitioner - 2019</li>
         </ul>
       </section>
@@ -320,11 +448,12 @@
       <!-- Achievements -->
       <section class="mb-10">
         <h2
-          class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2"
+          class="text-2xl font-bold mb-4 border-b-2 pb-2"
+          style="color: rgb(var(--text-primary)); border-color: rgb(var(--border-color))"
         >
           Achievements
         </h2>
-        <ul class="text-gray-700 space-y-2 text-sm">
+        <ul class="space-y-2 text-sm" style="color: rgb(var(--text-secondary))">
           <li>
             <strong>BearingPoint "Team Player" Award (2024)</strong> – Received
             award and advanced to senior role within 2 years based on technical
@@ -338,38 +467,202 @@
         </ul>
       </section>
 
-      <!-- Contact CTA -->
-      <section id="contact" class="mt-12 p-8 bg-blue-50 rounded-lg text-center">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Let's Connect</h2>
-        <p class="text-gray-700 mb-6">
+      <!-- Contact Form -->
+      <section
+        id="contact"
+        class="mt-12 p-8 rounded-lg"
+        style="background-color: rgb(var(--bg-accent))"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-center"
+          style="color: rgb(var(--text-primary))"
+        >
+          Let's Connect
+        </h2>
+        <p class="mb-6 text-center" style="color: rgb(var(--text-secondary))">
           I'm always interested in hearing about new opportunities and
           interesting projects.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a
-            href="mailto: andrew@andrewdunne.ie"
-            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium"
-          >
-            Email Me
-          </a>
-          <a
-            href="https://linkedin.com/in/andrew-dunne-ie"
-            target="_blank"
-            rel="noopener"
-            class="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition font-medium"
-          >
-            View LinkedIn
-          </a>
-        </div>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="max-w-2xl mx-auto space-y-4"
+        >
+          <!-- Honeypot field for spam protection -->
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label
+              >Don't fill this out if you're human: <input name="bot-field"
+            /></label>
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium mb-1"
+                style="color: rgb(var(--text-primary))"
+                >Name *</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                style="
+                  background-color: rgb(var(--bg-secondary));
+                  color: rgb(var(--text-primary));
+                  border-color: rgb(var(--border-color));
+                "
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium mb-1"
+                style="color: rgb(var(--text-primary))"
+                >Email *</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                style="
+                  background-color: rgb(var(--bg-secondary));
+                  color: rgb(var(--text-primary));
+                  border-color: rgb(var(--border-color));
+                "
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="subject"
+              class="block text-sm font-medium mb-1"
+              style="color: rgb(var(--text-primary))"
+              >Subject</label
+            >
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              style="
+                background-color: rgb(var(--bg-secondary));
+                color: rgb(var(--text-primary));
+                border-color: rgb(var(--border-color));
+              "
+            />
+          </div>
+
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium mb-1"
+              style="color: rgb(var(--text-primary))"
+              >Message *</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              style="
+                background-color: rgb(var(--bg-secondary));
+                color: rgb(var(--text-primary));
+                border-color: rgb(var(--border-color));
+              "
+            ></textarea>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium"
+            >
+              Send Message
+            </button>
+            <a
+              href="mailto:cv@andrewdunne.ie"
+              class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg transition font-medium"
+              style="background-color: transparent"
+              onmouseover="this.style.backgroundColor='rgba(var(--border-color), 0.3)'"
+              onmouseout="this.style.backgroundColor='transparent'"
+            >
+              Email Directly
+            </a>
+            <a
+              href="https://linkedin.com/in/andrew-dunne-ie"
+              target="_blank"
+              rel="noopener"
+              class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg transition font-medium"
+              style="background-color: transparent"
+              onmouseover="this.style.backgroundColor='rgba(var(--border-color), 0.3)'"
+              onmouseout="this.style.backgroundColor='transparent'"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </form>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8 no-print">
+    <footer
+      class="py-8 no-print"
+      style="
+        background-color: rgb(var(--bg-secondary));
+        color: rgb(var(--text-muted));
+      "
+    >
       <div class="max-w-4xl mx-auto px-6 text-center text-sm">
         <p>&copy; 2025 Andrew Dunne. All rights reserved.</p>
         <p class="mt-2">Built with HTML & Tailwind CSS. Hosted on Netlify.</p>
       </div>
     </footer>
+
+    <script>
+      // Dark mode toggle functionality
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      const themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      function updateThemeIcons() {
+        const theme = document.documentElement.getAttribute("data-theme");
+        if (theme === "dark") {
+          themeToggleLightIcon.classList.remove("hidden");
+          themeToggleDarkIcon.classList.add("hidden");
+        } else {
+          themeToggleLightIcon.classList.add("hidden");
+          themeToggleDarkIcon.classList.remove("hidden");
+        }
+      }
+
+      // Set initial icon state
+      updateThemeIcons();
+
+      themeToggleBtn.addEventListener("click", function () {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcons();
+      });
+    </script>
   </body>
 </html>
