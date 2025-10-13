@@ -2,7 +2,7 @@
 
 Personal CV website built with HTML and Tailwind CSS.
 
-**Live Site:** https://andrewdunne.ie
+**Live Site:** https://www.andrewdunne.ie
 
 ## Tech Stack
 
