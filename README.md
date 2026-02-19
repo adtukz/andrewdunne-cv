@@ -7,7 +7,6 @@ Personal CV website built with HTML and Tailwind CSS.
 ## Tech Stack
 
 - HTML5
-- Tailwind CSS (via CDN)
 - Hosted on Netlify
 - Custom domain: andrewdunne.ie
 

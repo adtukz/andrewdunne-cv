@@ -36,7 +36,6 @@
     />
     <title>Andrew Dunne - Senior Full-Stack Software Engineer</title>
     <meta name="theme-color" content="#169b62" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -84,408 +83,14 @@
         ]
       }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --bg-primary: 249, 250, 251;
-        --bg-secondary: 255, 255, 255;
-        --bg-accent: 239, 246, 255;
-        --text-primary: 17, 24, 39;
-        --text-secondary: 75, 85, 99;
-        --text-muted: 156, 163, 175;
-        --border-color: 229, 231, 235;
-      }
-
-      [data-theme="dark"] {
-        --bg-primary: 17, 24, 39;
-        --bg-secondary: 31, 41, 55;
-        --bg-accent: 30, 41, 59;
-        --text-primary: 243, 244, 246;
-        --text-secondary: 209, 213, 219;
-        --text-muted: 156, 163, 175;
-        --border-color: 55, 65, 81;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background-color: rgb(var(--bg-primary));
-        color: rgb(var(--text-primary));
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      ul.experience-list {
-        list-style-position: outside;
-        padding-left: 1.25rem;
-        line-height: 1.7;
-      }
-
-      ul.experience-list li {
-        padding-left: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      ul.experience-list li::marker {
-        color: rgb(var(--text-muted));
-      }
-
-      .timeline-container {
-        position: relative;
-        border-left: 2px solid rgba(22, 155, 98, 0.2);
-        margin-left: 1rem;
-        padding-left: 0;
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: 2.5rem;
-        padding-left: 2.5rem;
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -13px;
-        top: 32px;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #169b62 0%, #0d7a4d 100%);
-        border: 3px solid rgb(var(--bg-secondary));
-        z-index: 1;
-        transition: all 0.3s ease;
-      }
-
-      .timeline-item:hover::before {
-        transform: scale(1.2);
-        box-shadow: 0 0 0 6px rgba(22, 155, 98, 0.1);
-      }
-
-      .timeline-item:last-child {
-        margin-bottom: 0;
-      }
-
-      .experience-card {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background-color: transparent !important;
-      }
-
-      .experience-card:hover {
-        transform: translateY(-4px);
-        background-color: rgba(var(--bg-accent), 0.4) !important;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-      }
-
-      [data-theme="dark"] .experience-card:hover {
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-      }
-
-      .btn-gradient {
-        background: linear-gradient(135deg, #169b62 0%, #0d7a4d 100%);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-weight: 500;
-        white-space: nowrap;
-      }
-
-      .btn-gradient:hover {
-        background: linear-gradient(135deg, #0d7a4d 0%, #0a5c39 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(22, 155, 98, 0.4);
-      }
-
-      .btn-gradient:active {
-        transform: translateY(0);
-      }
-
-      .btn-outline {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-weight: 500;
-        white-space: nowrap;
-      }
-
-      .btn-outline:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(22, 155, 98, 0.2);
-      }
-
-      .btn-outline:active {
-        transform: translateY(0);
-      }
-
-      /* Icon Button Styles */
-      .icon-button {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background-color: rgba(var(--border-color), 0.5);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .icon-button:hover {
-        transform: scale(1.1);
-        background-color: rgba(var(--border-color), 0.8) !important;
-      }
-
-      .icon-button:active {
-        transform: scale(0.95);
-      }
-
-      .icon-button svg {
-        width: 1.25rem;
-        height: 1.25rem;
-        color: rgb(var(--text-primary));
-      }
-
-      /* Mobile header improvements */
-      @media (max-width: 768px) {
-        header .flex.items-center.gap-3 {
-          flex-wrap: wrap;
-          justify-content: flex-end;
-        }
-
-        .btn-outline,
-        .btn-gradient {
-          font-size: 0.875rem;
-          padding: 0.5rem 0.75rem;
-        }
-
-        /* Hide "Get in Touch" button on mobile, keep Download CV */
-        header .btn-gradient {
-          display: none;
-        }
-
-        /* Order: Download CV, LinkedIn, Email, Theme Toggle */
-        header .btn-outline {
-          order: -3;
-        }
-
-        header .icon-button:nth-of-type(1) {
-          order: -2;
-        }
-
-        header .icon-button:nth-of-type(2) {
-          order: -1;
-        }
-
-        #theme-toggle {
-          order: 0;
-        }
-      }
-
-      /* Contact form button improvements */
-      .contact-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .contact-buttons a,
-      .contact-buttons button {
-        flex: 1 1 auto;
-        min-width: 150px;
-        text-align: center;
-      }
-
-      @media (max-width: 640px) {
-        .contact-buttons {
-          flex-direction: column;
-        }
-
-        .contact-buttons a,
-        .contact-buttons button {
-          width: 100%;
-        }
-      }
-
-      /* Profile Image Animation */
-      .profile-image {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .profile-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Section Headers */
-      section h2 {
-        position: relative;
-        display: inline-block;
-      }
-
-      section h2::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(135deg, #169b62 0%, #0d7a4d 100%);
-        border-radius: 2px;
-      }
-
-      /* Skill Cards */
-      .skill-card {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 1rem;
-        border-radius: 0.5rem;
-        cursor: default;
-        background-color: transparent;
-      }
-
-      .skill-card:hover {
-        background-color: rgba(var(--bg-accent), 0.4);
-        transform: translateX(4px);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      }
-
-      [data-theme="dark"] .skill-card:hover {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Link Underlines */
-      .link-underline {
-        position: relative;
-        text-decoration: none;
-      }
-
-      .link-underline::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background-color: #169b62;
-        transition: width 0.3s ease;
-      }
-
-      .link-underline:hover::after {
-        width: 100%;
-      }
-
-      /* Theme Toggle */
-      #theme-toggle {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      #theme-toggle:hover {
-        transform: rotate(20deg) scale(1.1);
-        background-color: rgba(var(--border-color), 0.8) !important;
-      }
-
-      #theme-toggle:active {
-        transform: rotate(20deg) scale(0.95);
-      }
-
-      /* Form Input Focus */
-      input:focus,
-      textarea:focus {
-        outline: none;
-      }
-
-      /* Skip to content link for accessibility */
-      .skip-to-content {
-        position: absolute;
-        top: -40px;
-        left: 0;
-        background: #169b62;
-        color: white;
-        padding: 8px 16px;
-        text-decoration: none;
-        border-radius: 0 0 4px 0;
-        z-index: 100;
-        font-weight: 500;
-      }
-
-      .skip-to-content:focus {
-        top: 0;
-      }
-
-      /* Page load animation */
-      body {
-        animation: fadeIn 0.6s ease-in;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @media print {
-        * {
-          color: #000 !important;
-          background-color: #fff !important;
-          box-shadow: none !important;
-          text-shadow: none !important;
-        }
-
-        .no-print {
-          display: none;
-        }
-
-        .timeline-container {
-          border-left: none !important;
-          margin-left: 0;
-        }
-
-        .timeline-item::before {
-          display: none !important;
-        }
-
-        .timeline-item {
-          padding-left: 0 !important;
-        }
-
-        main {
-          box-shadow: none !important;
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-
-        .experience-card {
-          box-shadow: none !important;
-          background-color: transparent !important;
-          page-break-inside: avoid;
-        }
-
-        section {
-          page-break-inside: avoid;
-        }
-
-        h2 {
-          border-bottom: 2px solid #000 !important;
-          page-break-after: avoid;
-        }
-
-        a {
-          text-decoration: none;
-        }
-
-        a[href^="http"]:after {
-          content: none;
-        }
-      }
-    </style>
     <script>
-      // Dark mode initialization (runs before body renders to prevent flash)
       (function () {
         const savedTheme = localStorage.getItem("theme");
         const prefersDark = window.matchMedia(
@@ -499,42 +104,21 @@
   <body>
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-    <header
-      class="shadow-sm no-print"
-      style="background-color: rgb(var(--bg-secondary))"
-    >
-      <div
-        class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <h1 class="text-xl font-bold" style="color: rgb(var(--text-primary))">
-          Andrew Dunne
-        </h1>
-        <div class="flex items-center gap-3">
-          <a
-            href="/Andrew_Dunne_CV.pdf"
-            download
-            class="btn-outline border-2 px-4 py-2 rounded-lg font-medium"
-            style="
-              background-color: transparent;
-              border-color: #169b62;
-              color: #169b62;
-            "
-            onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
-            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
+    <header class="site-header bg-secondary no-print">
+      <div class="container header-inner">
+        <span class="header-name text-primary">Andrew Dunne</span>
+        <div class="header-nav">
+          <a href="/Andrew_Dunne_CV.pdf" download class="btn-secondary"
             >Download CV</a
           >
-          <a
-            href="#contact"
-            class="btn-gradient text-white px-4 py-2 rounded-lg font-medium"
-            >Get in Touch</a
-          >
+          <a href="#contact" class="btn-primary">Contact</a>
           <a
             href="https://linkedin.com/in/andrew-dunne-ie"
             target="_blank"
             rel="noopener"
             class="icon-button"
             aria-label="LinkedIn Profile"
-            style="background-color: rgba(var(--border-color), 0.5)"
+            title="LinkedIn Profile"
           >
             <svg
               fill="currentColor"
@@ -550,7 +134,7 @@
             href="mailto:andrew@andrewdunne.ie"
             class="icon-button"
             aria-label="Send Email"
-            style="background-color: rgba(var(--border-color), 0.5)"
+            title="Send Email"
           >
             <svg
               fill="none"
@@ -569,17 +153,16 @@
           </a>
           <button
             id="theme-toggle"
-            class="p-2 rounded-lg transition"
+            class="bg-border-muted"
             aria-label="Toggle dark mode"
-            style="background-color: rgba(var(--border-color), 0.5)"
+            title="Toggle theme"
           >
             <svg
               id="theme-toggle-dark-icon"
-              class="w-5 h-5 hidden"
+              class="toggle-icon hidden"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(var(--text-primary))"
             >
               <path
                 d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
@@ -587,11 +170,10 @@
             </svg>
             <svg
               id="theme-toggle-light-icon"
-              class="w-5 h-5 hidden"
+              class="toggle-icon hidden"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(var(--text-primary))"
             >
               <path
                 d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
@@ -604,196 +186,119 @@
       </div>
     </header>
 
-    <main
-      id="main-content"
-      class="max-w-4xl mx-auto px-6 py-12 my-8 shadow-lg rounded-lg"
-      style="background-color: rgb(var(--bg-secondary))"
-    >
-      <div class="mb-8 flex flex-col md:flex-row md:items-center gap-6">
+    <main id="main-content" class="container main-content bg-secondary">
+      <div class="profile-row">
         <img
           src="Andrew.webp"
           alt="Andrew Dunne"
-          class="profile-image w-32 h-32 rounded-full mx-auto md:mx-0 object-cover border-4 flex-shrink-0 no-print"
-          style="border-color: rgb(var(--border-color))"
+          class="profile-image border-theme no-print"
         />
-        <div class="flex-1 text-center md:text-left">
-          <h1
-            class="text-4xl font-bold mb-2"
-            style="color: rgb(var(--text-primary))"
-          >
-            Andrew Dunne
-          </h1>
-          <p class="text-xl mb-4" style="color: rgb(var(--text-secondary))">
+        <div class="profile-text">
+          <h1 class="profile-name text-primary">Andrew Dunne</h1>
+          <p class="profile-title text-secondary">
             Senior Full-Stack Software Engineer
           </p>
-          <div
-            class="flex flex-wrap justify-center md:justify-start gap-4 text-sm"
-            style="color: rgb(var(--text-secondary))"
-          >
+          <div class="profile-links text-secondary">
             <a
               href="mailto:andrew@andrewdunne.ie"
-              class="link-underline transition"
-              style="color: rgb(var(--text-secondary))"
-              onmouseover="this.style.color='#169b62'"
-              onmouseout="this.style.color='rgb(var(--text-secondary))'"
+              class="link-underline link-hover-green"
               >andrew@andrewdunne.ie</a
             >
-            <span style="color: rgb(var(--text-muted))">|</span>
+            <span class="text-muted">|</span>
             <a
               href="https://linkedin.com/in/andrew-dunne-ie"
               target="_blank"
               rel="noopener"
-              class="link-underline transition"
-              style="color: rgb(var(--text-secondary))"
-              onmouseover="this.style.color='#169b62'"
-              onmouseout="this.style.color='rgb(var(--text-secondary))'"
+              class="link-underline link-hover-green"
               >LinkedIn</a
             >
-            <span style="color: rgb(var(--text-muted))">|</span>
+            <span class="text-muted">|</span>
             <span>Dublin, Ireland</span>
           </div>
         </div>
       </div>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">
           Professional Summary
         </h2>
-        <p class="leading-relaxed" style="color: rgb(var(--text-secondary))">
-          Senior Full-Stack Software Engineer with 6+ years of experience
-          delivering enterprise-scale web applications for public sector
-          clients. Proven track record leading technical delivery across diverse
-          technology stacks including React, Angular, .NET, Java, and cloud
-          platforms. Expert in Agile delivery, accessibility compliance, CI/CD
-          practices, and stakeholder engagement. Passionate about building
-          scalable, user-focused solutions with strong emphasis on code quality
-          and maintainability.
+        <p class="summary-text text-secondary">
+          Senior Full-Stack Software Engineer specialising in public sector
+          digital transformation, with 6+ years of experience delivering
+          enterprise-scale web applications. Currently leading technical delivery
+          of multi-platform systems spanning React, Java, and PHP for a
+          government case management programme serving thousands of users.
+          Combines deep expertise across the full stack — from Angular and React
+          frontends to .NET and Java backends on AWS and Azure — with a strong
+          focus on accessibility (WCAG 2.1 AA), UX design, and DevSecOps
+          practices. Recognised for rapid impact, earning two company awards and
+          promotion to senior role within two years at BearingPoint.
         </p>
       </section>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">
           Technical Skills
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div class="skills-grid">
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Frontend:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
+            <p class="skill-label text-primary">Frontend:</p>
+            <p class="text-secondary">
               React, Angular (v12+), JavaScript, TypeScript, HTML5, CSS3, SCSS
             </p>
           </div>
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Backend:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
+            <p class="skill-label text-primary">Backend:</p>
+            <p class="text-secondary">
               .NET Core, C#, Node.js, Java, Groovy, PHP
             </p>
           </div>
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Cloud & DevOps:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
+            <p class="skill-label text-primary">Cloud & DevOps:</p>
+            <p class="text-secondary">
               Azure, AWS, Azure DevOps, CI/CD pipelines, Docker
             </p>
           </div>
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Databases:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
-              SQL Server, DynamoDB
-            </p>
+            <p class="skill-label text-primary">Databases:</p>
+            <p class="text-secondary">SQL Server, DynamoDB</p>
           </div>
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Testing:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
-              Jest, Cypress, JMeter
-            </p>
+            <p class="skill-label text-primary">Testing:</p>
+            <p class="text-secondary">Jest, Cypress, JMeter</p>
           </div>
           <div class="skill-card">
-            <p
-              class="font-semibold mb-1"
-              style="color: rgb(var(--text-primary))"
-            >
-              Methodologies:
-            </p>
-            <p style="color: rgb(var(--text-secondary))">
+            <p class="skill-label text-primary">Methodologies:</p>
+            <p class="text-secondary">
               Agile, Scrum, UX Design, WCAG, DevSecOps
             </p>
           </div>
         </div>
       </section>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">
           Professional Experience
         </h2>
 
         <div class="timeline-container">
-          <div class="timeline-item experience-card mb-8 p-6 rounded-lg">
-            <div class="flex justify-between items-start mb-2">
+          <div class="timeline-item experience-card">
+            <div class="job-header">
               <div>
-                <h3
-                  class="text-xl font-semibold"
-                  style="color: rgb(var(--text-primary))"
-                >
+                <h3 class="job-title text-primary">
                   Senior Technology Consultant
                 </h3>
-                <p style="color: rgb(var(--text-secondary))">
-                  BearingPoint, Dublin
-                </p>
+                <p class="text-secondary">BearingPoint, Dublin</p>
               </div>
-              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              <span class="job-date text-secondary"
                 >March 2024 - Present</span
               >
             </div>
-            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
+            <p class="job-description text-primary">
               Lead Developer for digital transformation of case management
               system
             </p>
-            <ul
-              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-              style="color: rgb(var(--text-secondary))"
-            >
+            <ul class="experience-list text-secondary">
               <li>
                 Lead technical delivery of multiple systems including internal
                 portals built with <strong>React</strong> and public-facing
@@ -825,74 +330,60 @@
             </ul>
           </div>
 
-          <div class="timeline-item experience-card mb-8 p-6 rounded-lg">
-            <div class="flex justify-between items-start mb-2">
+          <div class="timeline-item experience-card">
+            <div class="job-header">
               <div>
-                <h3
-                  class="text-xl font-semibold"
-                  style="color: rgb(var(--text-primary))"
-                >
-                  Technology Consultant
-                </h3>
-                <p style="color: rgb(var(--text-secondary))">
-                  BearingPoint, Dublin
-                </p>
+                <h3 class="job-title text-primary">Technology Consultant</h3>
+                <p class="text-secondary">BearingPoint, Dublin</p>
               </div>
-              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              <span class="job-date text-secondary"
                 >March 2022 - March 2024</span
               >
             </div>
-            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
-              Developer for large public body
+            <p class="job-description text-primary">
+              Full-stack developer supporting digital services for a major
+              public sector organisation
             </p>
-            <ul
-              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-              style="color: rgb(var(--text-secondary))"
-            >
+            <ul class="experience-list text-secondary">
               <li>
-                Developed and maintained <strong>Power Apps</strong> which were
-                developed and deployed rapidly in production environments to
-                address high-value client needs
+                Rapidly built and deployed <strong>Power Apps</strong> solutions
+                to production, addressing high-priority client needs and
+                streamlining operational workflows
               </li>
               <li>
-                Implemented monitoring and logging infrastructure using
-                <strong>ELK stack</strong> (Elasticsearch, Logstash, Grafana)
+                Implemented centralised monitoring and logging infrastructure
+                using <strong>Elasticsearch</strong>,
+                <strong>Logstash</strong>, <strong>Kibana</strong>, and
+                <strong>Grafana</strong>, improving system observability and
+                incident response
               </li>
               <li>
-                Built <strong>Power BI</strong> dashboards for real-time
-                performance monitoring
+                Designed and delivered <strong>Power BI</strong> dashboards
+                providing stakeholders with real-time visibility into system
+                performance and operational metrics
               </li>
               <li>
-                Optimized SQL database queries and backend processes using
-                <strong>.NET Framework</strong>
+                Optimised SQL Server queries and
+                <strong>.NET Framework</strong> backend processes, improving
+                application responsiveness and reducing page load times
               </li>
             </ul>
           </div>
 
-          <div class="timeline-item experience-card mb-8 p-6 rounded-lg">
-            <div class="flex justify-between items-start mb-2">
+          <div class="timeline-item experience-card">
+            <div class="job-header">
               <div>
-                <h3
-                  class="text-xl font-semibold"
-                  style="color: rgb(var(--text-primary))"
-                >
-                  .NET/Angular Consultant
-                </h3>
-                <p style="color: rgb(var(--text-secondary))">
-                  Version 1, Dublin
-                </p>
+                <h3 class="job-title text-primary">.NET/Angular Consultant</h3>
+                <p class="text-secondary">Version 1, Dublin</p>
               </div>
-              <span class="text-sm" style="color: rgb(var(--text-secondary))"
+              <span class="job-date text-secondary"
                 >July 2019 - March 2022</span
               >
             </div>
-            <p class="font-medium mb-2" style="color: rgb(var(--text-primary))">
-              Large digital transformation project of a case management system
+            <p class="job-description text-primary">
+              Full-stack developer on enterprise case management modernisation
             </p>
-            <ul
-              class="list-disc list-inside space-y-2 text-sm ml-4 experience-list"
-              style="color: rgb(var(--text-secondary))"
-            >
+            <ul class="experience-list text-secondary">
               <li>
                 Instrumental in transforming legacy case management system into
                 modern, responsive SPA using <strong>Angular</strong> (v12),
@@ -917,34 +408,21 @@
         </div>
       </section>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
-          Education
-        </h2>
-        <div class="mb-4">
-          <div class="flex justify-between items-start">
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">Education</h2>
+        <div class="edu-entry">
+          <div class="edu-header">
             <div>
-              <h3
-                class="text-lg font-semibold"
-                style="color: rgb(var(--text-primary))"
-              >
+              <h3 class="edu-title text-primary">
                 BSc (Hons) Creative Computing, First Class Honours
               </h3>
-              <p style="color: rgb(var(--text-secondary))">
-                IADT, Dun Laoghaire
-              </p>
+              <p class="text-secondary">IADT, Dun Laoghaire</p>
             </div>
-            <span class="text-sm" style="color: rgb(var(--text-secondary))"
+            <span class="job-date text-secondary"
               >September 2015 - May 2019</span
             >
           </div>
-          <p class="text-sm mt-2" style="color: rgb(var(--text-secondary))">
+          <p class="edu-detail text-secondary">
             <strong>Final Year Project:</strong> Procedural Generation –
             Investigation of Perlin and Simplex noise algorithms to create
             natural terrain using Unity and C#
@@ -952,17 +430,11 @@
         </div>
       </section>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">
           Certifications
         </h2>
-        <ul class="space-y-1 text-sm" style="color: rgb(var(--text-secondary))">
+        <ul class="cert-list text-secondary">
           <li>
             Microsoft Power Platform Functional Consultant Associate
             (<strong>PL-200</strong>) - 2022
@@ -976,17 +448,9 @@
         </ul>
       </section>
 
-      <section class="mb-10">
-        <h2
-          class="text-2xl font-bold mb-4 border-b-2 pb-2"
-          style="
-            color: rgb(var(--text-primary));
-            border-color: rgb(var(--border-color));
-          "
-        >
-          Achievements
-        </h2>
-        <ul class="space-y-2 text-sm" style="color: rgb(var(--text-secondary))">
+      <section class="section">
+        <h2 class="section-heading text-primary border-theme">Achievements</h2>
+        <ul class="achievements-list text-secondary">
           <li>
             <strong>BearingPoint "Team Player" Award (2024)</strong> – Received
             award and advanced to senior role within two years based on
@@ -1000,23 +464,20 @@
         </ul>
       </section>
 
-      <section
-        id="contact"
-        class="mt-12 p-8 rounded-lg no-print"
-        style="background-color: rgb(var(--bg-accent))"
-      >
-        <h3 class="text-2xl font-bold mb-4 text-center">Let's Connect</h3>
-        <p class="mb-6 text-center" style="color: rgb(var(--text-secondary))">
+      <section id="contact" class="contact-section bg-accent no-print">
+        <h2 class="contact-heading">Let's Connect</h2>
+        <p class="contact-subtitle text-secondary">
           I'm always interested in hearing about new opportunities and
           interesting projects.
         </p>
 
         <form
+          id="contact-form"
           name="contact"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          class="max-w-2xl mx-auto space-y-4"
+          class="contact-form"
         >
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden">
@@ -1025,35 +486,20 @@
             /></label>
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-grid">
             <div>
-              <label
-                for="name"
-                class="block text-sm font-medium mb-1"
-                style="color: rgb(var(--text-primary))"
-                >Name *</label
-              >
+              <label for="name" class="form-label text-primary">Name *</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
-                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
-                style="
-                  background-color: rgb(var(--bg-secondary));
-                  color: rgb(var(--text-primary));
-                  border-color: rgb(var(--border-color));
-                "
-                onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)';"
-                onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
+                class="form-field"
               />
             </div>
 
             <div>
-              <label
-                for="email"
-                class="block text-sm font-medium mb-1"
-                style="color: rgb(var(--text-primary))"
+              <label for="email" class="form-label text-primary"
                 >Email *</label
               >
               <input
@@ -1061,45 +507,25 @@
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
-                style="
-                  background-color: rgb(var(--bg-secondary));
-                  color: rgb(var(--text-primary));
-                  border-color: rgb(var(--border-color));
-                "
-                onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
-                onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
+                class="form-field"
               />
             </div>
           </div>
 
           <div>
-            <label
-              for="subject"
-              class="block text-sm font-medium mb-1"
-              style="color: rgb(var(--text-primary))"
+            <label for="subject" class="form-label text-primary"
               >Subject</label
             >
             <input
               type="text"
               id="subject"
               name="subject"
-              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
-              style="
-                background-color: rgb(var(--bg-secondary));
-                color: rgb(var(--text-primary));
-                border-color: rgb(var(--border-color));
-              "
-              onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
-              onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
+              class="form-field"
             />
           </div>
 
           <div>
-            <label
-              for="message"
-              class="block text-sm font-medium mb-1"
-              style="color: rgb(var(--text-primary))"
+            <label for="message" class="form-label text-primary"
               >Message *</label
             >
             <textarea
@@ -1107,34 +533,17 @@
               name="message"
               rows="5"
               required
-              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:border-transparent transition"
-              style="
-                background-color: rgb(var(--bg-secondary));
-                color: rgb(var(--text-primary));
-                border-color: rgb(var(--border-color));
-              "
-              onfocus="this.style.borderColor='#169b62'; this.style.boxShadow='0 0 0 3px rgba(22, 155, 98, 0.1)'"
-              onblur="this.style.borderColor='rgb(var(--border-color))'; this.style.boxShadow='none'"
+              class="form-field"
             ></textarea>
           </div>
 
           <div class="contact-buttons">
-            <button
-              type="submit"
-              class="btn-gradient text-white px-8 py-3 rounded-lg font-medium"
-            >
+            <button type="submit" class="btn-primary btn-primary-lg">
               Send Message
             </button>
             <a
               href="mailto:andrew@andrewdunne.ie"
-              class="btn-outline border-2 px-8 py-3 rounded-lg font-medium"
-              style="
-                background-color: transparent;
-                border-color: #169b62;
-                color: #169b62;
-              "
-              onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
-              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
+              class="btn-secondary btn-secondary-lg"
             >
               Email Directly
             </a>
@@ -1142,14 +551,7 @@
               href="https://linkedin.com/in/andrew-dunne-ie"
               target="_blank"
               rel="noopener"
-              class="btn-outline border-2 px-8 py-3 rounded-lg font-medium"
-              style="
-                background-color: transparent;
-                border-color: #169b62;
-                color: #169b62;
-              "
-              onmouseover="this.style.backgroundColor='#169b62'; this.style.color='white'"
-              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#169b62'"
+              class="btn-secondary btn-secondary-lg"
             >
               LinkedIn
             </a>
@@ -1158,27 +560,17 @@
       </section>
     </main>
 
-    <footer
-      class="py-8 no-print"
-      style="
-        background-color: rgb(var(--bg-secondary));
-        color: rgb(var(--text-muted));
-      "
-    >
-      <div class="max-w-4xl mx-auto px-6 text-center text-sm">
-        <p>&copy; 2025 Andrew Dunne. Designed and built from scratch.</p>
-        <p class="mt-2">
+    <footer class="site-footer bg-secondary text-muted no-print">
+      <div class="container footer-inner">
+        <p>&copy; 2026 Andrew Dunne. Designed and built from scratch.</p>
+        <p class="footer-source">
           <a
             href="https://github.com/adtukz/andrewdunne-cv"
             target="_blank"
             rel="noopener"
-            class="link-underline transition inline-flex items-center gap-2"
-            style="color: rgb(var(--text-muted))"
-            onmouseover="this.style.color='#169b62'"
-            onmouseout="this.style.color='rgb(var(--text-muted))'"
+            class="link-underline link-hover-green-muted footer-link"
           >
             <svg
-              class="w-4 h-4"
               fill="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1194,16 +586,17 @@
     </footer>
 
     <script>
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      const themeToggleDarkIcon = document.getElementById(
+      // Theme toggle
+      var themeToggleBtn = document.getElementById("theme-toggle");
+      var themeToggleDarkIcon = document.getElementById(
         "theme-toggle-dark-icon"
       );
-      const themeToggleLightIcon = document.getElementById(
+      var themeToggleLightIcon = document.getElementById(
         "theme-toggle-light-icon"
       );
 
       function updateThemeIcons() {
-        const theme = document.documentElement.getAttribute("data-theme");
+        var theme = document.documentElement.getAttribute("data-theme");
         if (theme === "dark") {
           themeToggleLightIcon.classList.remove("hidden");
           themeToggleDarkIcon.classList.add("hidden");
@@ -1213,17 +606,55 @@
         }
       }
 
-      // Set initial icon state
       updateThemeIcons();
 
       themeToggleBtn.addEventListener("click", function () {
-        const currentTheme =
+        var currentTheme =
           document.documentElement.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-
+        var newTheme = currentTheme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
         updateThemeIcons();
+      });
+
+      // Form submission
+      var contactForm = document.getElementById("contact-form");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var form = e.target;
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalText = submitBtn.textContent;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(form)).toString(),
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error("Network response was not ok");
+            form.innerHTML =
+              '<div class="form-status form-status-success">' +
+              "<p>Thanks for reaching out! I'll get back to you soon.</p>" +
+              "</div>";
+          })
+          .catch(function () {
+            var prev = form.querySelector(".form-status-error");
+            if (prev) prev.remove();
+
+            var errorDiv = document.createElement("div");
+            errorDiv.className = "form-status form-status-error";
+            errorDiv.innerHTML =
+              "<p>Something went wrong. Please try again or email me directly.</p>";
+            form.insertBefore(errorDiv, form.firstChild);
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          });
       });
     </script>
   </body>
